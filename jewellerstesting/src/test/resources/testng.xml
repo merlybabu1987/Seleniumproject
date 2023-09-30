@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite">
+    <test name="FirstTest">
+        <classes>
+            <class name="jewellerstesting.EarringlistsFileWriting"/>
+        </classes>
+    </test>
+    <test name="SecondTest">
+        <classes>
+            <class name="jewellerstesting.Testearring"/>
+        </classes>
+    </test>
+</suite>

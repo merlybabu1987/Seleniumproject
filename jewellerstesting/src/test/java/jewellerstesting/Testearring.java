@@ -12,35 +12,32 @@ import org.testng.annotations.Test;
 
 public class Testearring {
 	WebDriver driver;
-	PageObjectsEarring earringPage= new PageObjectsEarring();
+	PageObjectsEarring earringPage;
+
+	@BeforeTest
+	public void setup() {
+		driver = WebDriverManager.getDriver();
+		earringPage = new PageObjectsEarring();
+	}
+
 	@Test
 	public void earrings() throws InterruptedException {
 		driver.get("https://www.candere.com/jewellery/earrings.html/");
-		//PageObjectsEarring gg= new PageObjectsEarring();
+		// PageObjectsEarring gg= new PageObjectsEarring();
 		Thread.sleep(3000);
-	String price = 	earringPage.earringPrice(driver).getText();
-		
+		String price = earringPage.earringPrice().getText();
+
 		try {
 			int extractedNumber = Integer.parseInt(price.replace("₹", "").replace(",", ""));
-		System.out.println(extractedNumber);
+			System.out.println(extractedNumber);
 		} catch (NumberFormatException e) {
 			Assert.fail();
 		}
 
 	}
 
-	@BeforeClass
-	public void initiateBrowser() {
-		ChromeOptions options =new ChromeOptions();
-		options.setBinary("C:\\myfiles\\chrome-win64\\chrome.exe");
-		System.setProperty("webdriver.chrome.driver", "C:\\myfiles\\chromedriver\\chromedriver.exe");
-		driver = new ChromeDriver(options);
-	}
-	
-	
-	
 	@AfterTest
 	public void drvierclose() {
-	driver.quit();
+		driver.quit();
 	}
 }
