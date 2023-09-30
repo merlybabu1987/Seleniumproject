@@ -22,6 +22,8 @@ public class PageObjectsEarring {
 	public List<WebElement> earringsList() {
 
 		return driver.findElements(By.xpath("//div[@class=\"product name product-item-name\"]"));
-}
+
+		
+	}
 
 }
