@@ -4,14 +4,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import util.TestConfigProperties;
+
 public class WebDriverManager {
 	private static WebDriver driver;
-
 	public static WebDriver getDriver() {
 		if (driver == null) {
 			ChromeOptions options = new ChromeOptions();
-			options.setBinary("C:\\myfiles\\chrome-win64\\chrome.exe");
-			System.setProperty("webdriver.chrome.driver", "C:\\myfiles\\chromedriver\\chromedriver.exe");
+		//	System.out.println(new TestConfigProperties().testReadConfigProperties("chrome.driver"));
+			options.setBinary(new TestConfigProperties().testReadConfigProperties("chrome.binary"));
+			System.setProperty("webdriver.chrome.driver", new TestConfigProperties().testReadConfigProperties("chrome.driver"));
 			driver = new ChromeDriver(options);
 		}
 		return driver;

@@ -1,5 +1,7 @@
 package jewellerstesting;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,4 +26,16 @@ public class PageObjectSauceDemo {
 
 		return driver.findElement(By.cssSelector("#login-button"));
 	}
+	
+	public List<WebElement> productTitle() {
+
+		return driver.findElements(By.xpath("//*[@id=\"header_container\"]/div[2]/span"));
+	}
+	
+	
+	public  List<WebElement> sdLoginErrormsg() {
+
+		return driver.findElements(By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3"));
+	}
+	
 }
